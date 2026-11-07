@@ -43,6 +43,10 @@
       }
     });
     aboutBody.classList.add('is-typing');
+    /* Spread the whole text over TYPE_SECONDS, pausing longer on punctuation */
+    const TYPE_SECONDS = 16;
+    const weight = (ch) => (/[.,]/.test(ch) ? 10 : ch === ' ' ? 1.5 : 1);
+    const unit = (TYPE_SECONDS * 1000) / chars.reduce((sum, c) => sum + weight(c.textContent), 0);
     let n = 0;
     let timer = null;
     const finish = () => {
@@ -57,7 +61,7 @@
       const c = chars[n++];
       c.classList.add('on', 'caret');
       const ch = c.textContent;
-      timer = setTimeout(step, /[.,]/.test(ch) ? 90 : ch === ' ' ? 14 : 9);
+      timer = setTimeout(step, weight(ch) * unit);
     };
     const typeIO = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
