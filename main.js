@@ -26,6 +26,49 @@
   }, { threshold: 0.25 });
   screens.forEach((s) => io.observe(s));
 
+  /* ---------- About: type the text out the first time the section shows ---------- */
+  const aboutBody = document.querySelector('.about__body');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (aboutBody && !reduceMotion.matches) {
+    const chars = [];
+    aboutBody.querySelectorAll('p').forEach((p) => {
+      const text = p.textContent;
+      p.textContent = '';
+      for (const ch of text) {
+        const span = document.createElement('span');
+        span.className = 'tw';
+        span.textContent = ch;
+        p.appendChild(span);
+        chars.push(span);
+      }
+    });
+    aboutBody.classList.add('is-typing');
+    let n = 0;
+    let timer = null;
+    const finish = () => {
+      clearTimeout(timer);
+      chars.forEach((c) => c.classList.add('on'));
+      chars.forEach((c) => c.classList.remove('caret'));
+      aboutBody.classList.remove('is-typing');
+    };
+    const step = () => {
+      if (n > 0) chars[n - 1].classList.remove('caret');
+      if (n >= chars.length) { finish(); return; }
+      const c = chars[n++];
+      c.classList.add('on', 'caret');
+      const ch = c.textContent;
+      timer = setTimeout(step, /[.,]/.test(ch) ? 90 : ch === ' ' ? 14 : 9);
+    };
+    const typeIO = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        typeIO.disconnect();
+        setTimeout(step, 500);
+      }
+    }, { threshold: 0.35 });
+    typeIO.observe(document.getElementById('about'));
+    aboutBody.addEventListener('click', finish);
+  }
+
   /* ---------- Overlays ---------- */
   const modal = document.getElementById('connect');
   let lastFocus = null;
