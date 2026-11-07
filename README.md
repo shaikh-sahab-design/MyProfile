@@ -1,6 +1,6 @@
 # MyProfile
 
-Personal profile site for Mohammad Adil Shaikh, Lead UI/UX Designer. Built from the "Adil's Resume" Figma file (Profile section).
+Personal profile site for Mohammad Adil Shaikh, Lead UI/UX AI Designer. Built from the "Adil's Resume" Figma file (Profile section).
 
 It is a static site with no build step: `index.html`, `styles.css`, `main.js` and the exported images in `assets/`.
 

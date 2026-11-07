@@ -110,7 +110,7 @@ h1, h2, h3, p { margin: 0; }
    ========================================================================== */
 .grid-lines { left: 80px; top: 0; width: 1281px; height: 1024px; }
 
-.portrait { left: 86px; top: 138px; width: 669px; height: 886px; }
+.portrait { left: 26px; top: 138px; width: 669px; height: 886px; }
 .portrait__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.79s var(--gentle); }
 .portrait__img--hover { opacity: 0; filter: drop-shadow(0 4px 24px rgba(0, 0, 0, .2)); }
 .portrait:hover .portrait__img--hover, .portrait.is-hover .portrait__img--hover { opacity: 1; }
@@ -129,12 +129,12 @@ h1, h2, h3, p { margin: 0; }
 .portrait:hover .float-3, .portrait.is-hover .float-3 { transform: translate(83px, -84px) rotate(25.91deg); }
 .portrait:hover .float-4, .portrait.is-hover .float-4 { transform: translate(-60px, -70px) rotate(-28.48deg); }
 .portrait:hover .float-5, .portrait.is-hover .float-5 { transform: translate(90px, 60px) rotate(0deg); }
-.portrait:hover .float-6, .portrait.is-hover .float-6 { transform: translate(-70px, -90px) rotate(23.91deg); }
+.portrait:hover .float-6, .portrait.is-hover .float-6 { transform: translate(-20px, -90px) rotate(23.91deg); }
 .portrait:hover .float-7, .portrait.is-hover .float-7 { transform: translate(100px, 50px); }
 
-.intro { left: 714px; top: 314px; width: 643px; }
+.intro { left: 654px; top: 314px; width: 643px; }
 .intro__hello { font: italic 400 26px/35px var(--serif); letter-spacing: .52px; color: var(--muted); }
-.intro__title { margin-top: 1px; font: 700 64px/85px var(--serif); letter-spacing: 1.28px; color: var(--ink); white-space: nowrap; }
+.intro__title { margin-top: 1px; font: 700 60px/85px var(--serif); letter-spacing: 1.2px; color: var(--ink); white-space: nowrap; }
 .intro__company { margin-top: 8px; font: 400 18px/23px var(--sans); color: var(--muted); }
 .intro__company strong { font-weight: 700; }
 .intro__nav { display: flex; gap: 30px; margin-top: 34px; }
